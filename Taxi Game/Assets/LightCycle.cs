@@ -12,16 +12,17 @@ public class LightCycle : MonoBehaviour
     public GameObject yellowLights_V;
     public GameObject greenLights_V;
 
-    // Used online resources to get this code.
-    // Source : 
-    // https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/#timer
-
     private bool progressing_H = false;
     private bool progressing_V = false;
-    private float CYCLE_TIME = 10.0f;
+    private float MIN_TIME = 7.0f;
+    private float MAX_TIME = 20.0f;
     private float timeRemaining_H = 0.0f;
     private float timeRemaining_V = 0.0f;
     private bool horizontalFirst;
+
+    float generateCycleTime() {
+        return Mathf.Floor(Random.Range(MIN_TIME, MAX_TIME));
+    }
 
     void Start()
     {
@@ -42,14 +43,14 @@ public class LightCycle : MonoBehaviour
             if (greenLights_H.activeSelf == false){greenLights_H.SetActive(true);}
             if (redLights_V.activeSelf == false){redLights_V.SetActive(true);}
             progressing_H = true;
-            timeRemaining_H = CYCLE_TIME;
+            timeRemaining_H = generateCycleTime();
         }
         else {
             // Enable greenLights_V, Enable redLights_H.
             if (greenLights_V.activeSelf == false){greenLights_V.SetActive(true);}
             if (redLights_H.activeSelf == false){redLights_H.SetActive(true);}
             progressing_V = true;
-            timeRemaining_V = CYCLE_TIME;
+            timeRemaining_V = generateCycleTime();
         }
     }
 
@@ -75,7 +76,7 @@ public class LightCycle : MonoBehaviour
                 // Set time remaining_H to 0.
                 timeRemaining_H = 0.0f;
                 // Set time remaining_V to CYCLE_TIME.
-                timeRemaining_V = CYCLE_TIME;
+                timeRemaining_V = generateCycleTime();
                 // Set progressing_H to false
                 progressing_H = false;
                 // Set progressing_V to true
@@ -104,7 +105,7 @@ public class LightCycle : MonoBehaviour
                 // Set time remaining_V to 0.
                 timeRemaining_V = 0.0f;
                 // Set time remaining_H to CYCLE_TIME.
-                timeRemaining_H = CYCLE_TIME;
+                timeRemaining_H = generateCycleTime();
                 // Set progressing_V to false
                 progressing_V = false;
                 // Set progressing_H to true

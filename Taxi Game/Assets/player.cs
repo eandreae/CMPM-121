@@ -17,6 +17,43 @@ public class player : MonoBehaviour
     public GameObject rearLights;
     public GameObject reverseLights;
 
+    public GameObject Passenger1;
+    public GameObject Passenger2;
+    public GameObject Passenger3;
+
+    private GameObject Passenger;
+    private Vector3 thePosition;
+    private GameObject clone;
+
+    public Text type;
+    public GameObject pickedUp;
+    public GameObject inRange;
+    public GameObject jobStarted;
+    public GameObject droppedOff;
+
+    void OnMouseDown() {
+
+        if (pickedUp.activeSelf == true && inRange.activeSelf == true){
+            if (type.text == "1"){Passenger = Passenger1;}
+            if (type.text == "2"){Passenger = Passenger2;}
+            if (type.text == "3"){Passenger = Passenger3;}
+
+            Vector3 heightOffset = new Vector3(0, 2, 0);
+            thePosition = transform.TransformPoint(Vector3.right * 2);
+            thePosition += heightOffset;
+            clone = Instantiate(Passenger, thePosition, this.transform.rotation);
+            var cloneBody = clone.GetComponent<Rigidbody>();
+            cloneBody.velocity = transform.TransformDirection(Vector3.right * 10);
+            clone.transform.Rotate(0.0f, transform.rotation.y+90.0f, 0.0f, 0.0f);
+
+            if(pickedUp.activeSelf == true){pickedUp.SetActive(false);}
+            if(jobStarted.activeSelf == true){jobStarted.SetActive(false);}
+            if(droppedOff.activeSelf == false){droppedOff.SetActive(true);}
+
+            Object.Destroy(clone, 5.0f);
+        }
+    }
+
     public void updateSpeedometer() {
         float speedData = Mathf.Floor(this.speed * 2.0f);
         this.speedometer.text = speedData.ToString();
