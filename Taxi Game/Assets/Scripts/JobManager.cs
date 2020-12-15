@@ -60,7 +60,7 @@ public class JobManager : MonoBehaviour
     }
 
     void pickSpawn() {
-        float random = Mathf.Floor(Random.Range(0.0f, NUM_SPOTS));
+        float random = Mathf.Floor(Random.Range(1.0f, NUM_SPOTS));
         Debug.Log(random);
         Start = SpawnPoints.transform.Find(random.ToString()).gameObject;
         WaypointData.text = random.ToString();
