@@ -7,11 +7,8 @@ using TMPro;
 public class JobManager : MonoBehaviour
 {
 
-    public GameObject sp1; public GameObject dp1;
-    public GameObject sp2; public GameObject dp2;
-    public GameObject sp3; public GameObject dp3;
-    public GameObject sp4; public GameObject dp4;
-    public GameObject sp5; public GameObject dp5;
+    public GameObject SpawnPoints;
+    public GameObject Destinations;
 
     public GameObject Passenger1;
     public GameObject Passenger2;
@@ -28,7 +25,7 @@ public class JobManager : MonoBehaviour
     private GameObject dWaypoint;
     private bool d_spawned = false;
 
-    private float NUM_SPOTS = 3;
+    private float NUM_SPOTS = 100;
 
     private GameObject Start;
     private GameObject Destination;
@@ -61,17 +58,14 @@ public class JobManager : MonoBehaviour
 
     void pickSpawn() {
         float random = Mathf.Floor(Random.Range(0.0f, NUM_SPOTS));
-        if (random == 0.0f ){Start = sp1;}
-        if (random == 1.0f ){Start = sp2;}
-        if (random == 2.0f ){Start = sp3;}
         Debug.Log(random);
+        Start = SpawnPoints.transform.Find(random.ToString()).gameObject;
     }
 
     void pickDestination() {
         float random = Mathf.Floor(Random.Range(0.0f, NUM_SPOTS));
-        if (random == 0.0f ){Destination = dp1;}
-        if (random == 1.0f ){Destination = dp2;}
-        if (random == 2.0f ){Destination = dp3;}
+        Debug.Log(random);
+        Destination = Destinations.transform.Find(random.ToString()).gameObject;
     }
 
     void spawnDWaypoint() {

@@ -9,6 +9,12 @@ public class dTrigger : MonoBehaviour
     public GameObject itself;
     public GameObject droppedOff;
 
+    void Start()
+    {
+        var mesh = this.GetComponent<Renderer>();
+        mesh.enabled = false;
+    }
+
     public void OnTriggerEnter(Collider collider){
         if (collider.GetComponent<player>() != null ){
             var mesh = this.GetComponent<Renderer>();
