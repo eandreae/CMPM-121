@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Part of this code is sourced from here:
+// https://www.youtube.com/watch?v=zc8ac_qUXQY
+
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
@@ -45,7 +48,8 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        //SceneManager.LoadScene("Menu");
+        GameIsPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void QuitGame()
