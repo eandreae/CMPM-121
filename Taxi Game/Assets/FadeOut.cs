@@ -50,27 +50,35 @@ public class FadeOut : MonoBehaviour
 
     public void ResetTime(string s) 
     {
-        if (s == "taxi")
-        {
-            scoreTag.text += "+20 Clicked Taxi\n";
-            score += 20;
-            updateScore();
-        }
         if (s == "pickUp")
         {
-
+            scoreTag.text += "+5 Picked Up Passenger\n";
+            score += 5;
+            updateScore();
         }
         if (s == "dropOff")
         {
-
+            scoreTag.text += "+10 Dropped Off Passenger\n";
+            score += 10;
+            updateScore();
         }
         if (s == "inZone")
         {
-
+            scoreTag.text += "+10 Dropped Off In Right Area\n";
+            score += 10;
+            updateScore();
         }
         if (s == "ranRed")
         {
-            
+            scoreTag.text += "-1 Ran A Red Light\n";
+            score -= 1;
+            updateScore();
+        }
+        if (s == "ranOver")
+        {
+            scoreTag.text += "-20 Ran Over Passenger\n";
+            score -= 20;
+            updateScore();
         }
 
         a = 1;

@@ -34,8 +34,6 @@ public class player : MonoBehaviour
 
     void OnMouseDown() {
 
-        fadeScript.ResetTime("taxi");
-
         if (pickedUp.activeSelf == true && inRange.activeSelf == true){
             if (type.text == "1"){Passenger = Passenger1;}
             if (type.text == "2"){Passenger = Passenger2;}
@@ -54,6 +52,8 @@ public class player : MonoBehaviour
             if(droppedOff.activeSelf == false){droppedOff.SetActive(true);}
 
             Object.Destroy(clone, 5.0f);
+
+            fadeScript.ResetTime("dropOff");
         }
     }
 
