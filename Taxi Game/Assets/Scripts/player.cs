@@ -9,10 +9,9 @@ public class player : MonoBehaviour
 
     public float speed        = 0.0f;
     private float acceleration = 10.0f;
-    private float rotateSpeed  = 0.6f;
+    private float rotateSpeed  = 60.0f;
     private float MAX_SPEED = 30.0f;
 
-    public TextMeshProUGUI speedometer;
     public GameObject speedTracker;
     public GameObject rearLights;
     public GameObject reverseLights;
@@ -31,7 +30,11 @@ public class player : MonoBehaviour
     public GameObject jobStarted;
     public GameObject droppedOff;
 
+    public FadeOut fadeScript;
+
     void OnMouseDown() {
+
+        fadeScript.ResetTime("taxi");
 
         if (pickedUp.activeSelf == true && inRange.activeSelf == true){
             if (type.text == "1"){Passenger = Passenger1;}
@@ -52,11 +55,6 @@ public class player : MonoBehaviour
 
             Object.Destroy(clone, 5.0f);
         }
-    }
-
-    public void updateSpeedometer() {
-        float speedData = Mathf.Floor(this.speed * 2.0f);
-        this.speedometer.text = speedData.ToString();
     }
 
     public void updateSpeedTracker() {
@@ -83,7 +81,7 @@ public class player : MonoBehaviour
 
         transform.Rotate(
             0.0f, 
-            Input.GetAxis("Horizontal") * this.rotateSpeed,
+            Input.GetAxis("Horizontal") * this.rotateSpeed * Time.deltaTime,
             0.0f
         );
 
@@ -137,7 +135,6 @@ public class player : MonoBehaviour
         controller.SimpleMove(forward * curSpeed);
 
         updateSpeedTracker();
-        updateSpeedometer();
         
         
     }

@@ -35,7 +35,6 @@ public class LightCycle : MonoBehaviour
         greenLights_V.SetActive(false);
         // Pick the order of lights.
         horizontalFirst = pickFirst();
-        Debug.Log(horizontalFirst);
         // if true, horizontal first.
         // if false, vertical first.
         if ( horizontalFirst ){
