@@ -19,12 +19,16 @@ public class GameOverMenu : MonoBehaviour
     public GameObject mainCamera;
     public GameObject gameOverCamera;
 
+    public GameObject Taxi;
+
     public FadeOut fadeScript;
 
     public void GameOver ()
     {
+
+        Object.Destroy(Taxi, 0.0f);
+        
         mainCamera.GetComponent<Camera>().enabled = false;
-        mainCamera.GetComponent<AudioListener>().enabled = false;
         gameOverCamera.GetComponent<Camera>().enabled = true;
 
         GameOverUI.SetActive(true);
