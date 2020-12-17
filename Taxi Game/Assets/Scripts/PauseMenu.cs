@@ -14,11 +14,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject UIElements;
 
     public GameObject gameOverObject;
+    public GameObject inMenu;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && gameOverObject.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && gameOverObject.activeSelf == false
+            && inMenu.activeSelf == false )
         {
             if (GameIsPaused)
             {
