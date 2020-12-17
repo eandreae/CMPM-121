@@ -86,7 +86,6 @@ public class player : MonoBehaviour
         );
 
         if ( Input.GetAxis("Vertical") > 0 && this.speed < MAX_SPEED ){
-            Debug.Log("Accelerating");
 
             if ( this.speed >= 0 ){this.speed += acceleration * Time.deltaTime;}
             if ( this.speed < 0 ){
@@ -98,7 +97,6 @@ public class player : MonoBehaviour
         }
 
         if (Input.GetAxis("Vertical") == 0 ){
-            Debug.Log("Decelerating");
 
             if ( this.speed > 0 ) {
                 this.speed -= acceleration/1.25f * Time.deltaTime;
@@ -115,7 +113,6 @@ public class player : MonoBehaviour
         }
 
         if ( Input.GetAxis("Vertical") < 0 && this.speed > -18f){
-            Debug.Log("Reversing");
             if ( this.speed <= 0 ){this.speed -= acceleration/2.0f * Time.deltaTime;}
             if ( this.speed > 0 ){
                 this.speed -= acceleration * Time.deltaTime * 2.0f;

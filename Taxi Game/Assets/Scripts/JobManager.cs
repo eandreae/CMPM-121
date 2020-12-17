@@ -96,6 +96,7 @@ public class JobManager : MonoBehaviour
         if (random == 0.0f ){ Passenger = Passenger1; type.text = "1";}
         if (random == 1.0f ){ Passenger = Passenger2; type.text = "2";}
         if (random == 2.0f ){ Passenger = Passenger3; type.text = "3";}
+        if (random == 3.0f ){ Passenger = Passenger3; type.text = "3";}
         pickedUp.SetActive(false);
     }
 }

@@ -35,13 +35,11 @@ public class WheelAnimation : MonoBehaviour
         speed = getSpeed();
 
         if ( speed > 0.0f ){
-            Debug.Log("Moving Forward");
             anim.Play("Front Forward");
             anim.Play("Rear Forward");
         }
 
         if ( speed < 0.0f ){
-            Debug.Log("Moving Backward");
             anim.Play("Front Reverse");
             anim.Play("Rear Reverse");
         }
