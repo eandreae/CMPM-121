@@ -37,6 +37,7 @@ public class JobManager : MonoBehaviour
         resetPoints();
         pickSpawn();
         spawnPassenger();
+        FindObjectOfType<AudioManager>().Play("Buuh");
     }
 
     void endJob() {

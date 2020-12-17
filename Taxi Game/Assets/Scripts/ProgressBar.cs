@@ -12,7 +12,7 @@ public class ProgressBar : MonoBehaviour
     // https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/#timer
 
     private bool progressing = false;
-    private float timeRemaining = 3;
+    private float timeRemaining = 300;
 
     public Text timeText;
 

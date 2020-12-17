@@ -14,6 +14,9 @@ public class RedDetect : MonoBehaviour
         if ( redLights.activeSelf == true )
         {
             fadeScript.ResetTime("ranRed");
+
+            FindObjectOfType<AudioManager>().Play("Beepbeep");
+
         }
     }
 }

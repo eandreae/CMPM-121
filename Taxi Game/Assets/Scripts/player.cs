@@ -32,6 +32,11 @@ public class player : MonoBehaviour
 
     public FadeOut fadeScript;
 
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("CarStart");
+    }
+
     void OnMouseDown() {
 
         if (pickedUp.activeSelf == true && inRange.activeSelf == true){
@@ -54,6 +59,8 @@ public class player : MonoBehaviour
             Object.Destroy(clone, 5.0f);
 
             fadeScript.ResetTime("dropOff");
+
+            FindObjectOfType<AudioManager>().Play("CarDoor");
         }
     }
 

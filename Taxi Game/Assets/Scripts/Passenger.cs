@@ -17,6 +17,8 @@ public class Passenger : MonoBehaviour
             pickedUp.SetActive(true);
 
             fadeScript.ResetTime("pickUp");
+
+            FindObjectOfType<AudioManager>().Play("CarDoor");
         }
     }
 
